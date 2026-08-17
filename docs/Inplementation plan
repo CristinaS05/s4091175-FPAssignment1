@@ -1,0 +1,47 @@
+# MyTimetable Implementation Plan
+
+## 1. Class Design & Architecture
+* **Encapsulation & Visibility**: Set all instance variables to `private` or `protected`. Use getters/setters only where necessary.
+* **Inheritance & Hierarchy**: Use superclass methods to manipulate superclass properties from within subclasses without direct attribute access.
+  * `Course` (Superclass): Stores course name, capacity, year, delivery mode, day of lecture, time of lecture, duration, and number of current enrolments.
+  * `FaceToFaceCourse` (Subclass): Handles capacity limits and max-capacity enrolment checks.
+  * `OnlineCourse` (Subclass): Handles delivery with no capacity constraint (`Capacity` = `N/A`).
+* **Collections**: Use Java Collections Framework (JCF) structures (e.g., `ArrayList`, `List`) to store all courses and enrolled courses. No normal arrays.
+
+---
+
+## 2. Implementation Steps
+
+### Step 1: File Input & Data Loading
+- [ ] Read and parse `courses.csv`.
+- [ ] Skip the header row and instantiate corresponding `Course` objects.
+- [ ] Store all parsed courses in a JCF collection.
+
+### Step 2: Main Menu & Console Interface
+- [ ] Implement the console menu loop:
+  * `1) Search by keyword to enroll`
+  * `2) Show my enrolled courses`
+  * `3) Withdraw from a course`
+  * `4) Exit`
+- [ ] Terminate program upon selecting option 4 (no persistent saving required).
+
+### Step 3: Search & Enrolment Logic
+- [ ] Case-insensitive keyword search on course names.
+- [ ] Display matching courses with numbered selection.
+- [ ] Validate enrolments:
+  * Prevent duplicate enrolments.
+  * Reject enrolment if the course reaches maximum capacity (Face-to-face only).
+  * Reject enrolment if lecture times overlap on the same day.
+- [ ] Add accepted course to student's enrolled collection.
+
+### Step 4: Enrolled Courses & Withdrawal Logic
+- [ ] Display all enrolled courses in the exact order they were enrolled.
+- [ ] Allow user to select and withdraw only from currently enrolled courses.
+
+---
+
+## 3. Submission Requirements
+- [ ] Export project archive as `s4091175-FPAssignment1.zip`.
+- [ ] Complete weekly Canvas progress submissions (at least 3 across Weeks 3–5).
+- [ ] Record <= 10-minute demonstration video explaining OO class design and functionality.
+- [ ] Share video link with teaching team via cloud storage as a Canvas submission comment.
