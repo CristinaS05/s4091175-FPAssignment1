@@ -1,10 +1,15 @@
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class TimetableApp {
     private Scanner scanner;
+    private CSVReader reader;
 
     public TimetableApp() {
         this.scanner = new Scanner(System.in);
+        this.reader = new CSVReader();
+        this.reader.loadCourses("courses.csv");
     }
 
     public void run() {
@@ -56,6 +61,6 @@ public class TimetableApp {
 
     private void withdrawFromCourse() {
         // Implement logic to withdraw from a course
-        System.out.println("You have withdrawn from " + courseName + "!");
+        System.out.println("You have withdrawn from courseName!");
     }
 }
