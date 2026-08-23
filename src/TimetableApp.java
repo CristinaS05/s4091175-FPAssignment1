@@ -56,6 +56,6 @@ public class TimetableApp {
 
     private void withdrawFromCourse() {
         // Implement logic to withdraw from a course
-        System.out.println("You have withdrawn from courseName!");
+        System.out.println("You have withdrawn from " + courseName + "!");
     }
 }
